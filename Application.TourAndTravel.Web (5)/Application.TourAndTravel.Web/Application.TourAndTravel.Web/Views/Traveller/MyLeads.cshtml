@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Application.TourAndTravel.BookingInfo>
+@{
+    ViewBag.Title = "MyLeads";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<div class="row">
+    <div id="message">
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Information!</strong> @TempData["msg"]
+            </div>
+        }
+
+    </div>
+    @foreach (var data in Model)
+    {
+        <div class="col-sm-6">
+            <div class="panel panel-bd lobidrag">
+
+                <div class="panel-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr class="alert alert-info">
+                                    <td>Lead ID</td>
+                                    <td>@data.BookingInfoID</td>
+
+                                    <td>Date</td>
+                                    <td>@data.CreatedDate.ToString("dd MMM, yyyy")</td>
+                                </tr>
+                                @*<tr>
+                                    <td>No of Adults and Kids (Adults/Kids)</td>
+                                    <td colspan="3"><strong>@data.NoOfAdults</strong> Adults and <strong>@data.NoOfKids</strong> Kids</td>
+                                </tr>
+                                <tr>
+                                    <td>Destination</td>
+                                    <td colspan="3">@data.Destination</td>
+                                </tr>*@
+                                <tr>
+                                    <td>Duration</td>
+                                    <td colspan="3">@data.Duration</td>
+                                </tr>
+                                @*<tr>
+                                    <td>Departure Date</td>
+                                    <td colspan="3">@data.DepartureDate.ToString("dd MMMM, yyyy")</td>
+                                </tr>*@
+                                <tr>
+                                    <td>Name</td>
+                                    <td colspan="3">@data.ClientName</td>
+                                </tr>
+                                <tr>
+                                    <td>Email ID</td>
+                                    <td colspan="3">@data.Email</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile No</td>
+                                    <td colspan="3">@data.MobileNo</td>
+                                </tr>
+                                @*<tr>
+                                    <td>Requirements</td>
+                                    <td colspan="3">@data.Requirements</td>
+                                </tr>*@
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+

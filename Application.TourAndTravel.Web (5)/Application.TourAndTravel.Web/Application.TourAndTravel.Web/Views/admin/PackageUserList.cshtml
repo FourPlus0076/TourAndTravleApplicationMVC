@@ -1,0 +1,78 @@
+﻿@using Application.TourAndTravel.Web.Models
+@{
+    DBAccessVM dal = new DBAccessVM();
+}
+@{
+    ViewBag.Title = "PackageUserList";
+    Layout = "~/Views/Shared/_TravellerLayout.cshtml";
+}
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonexport">
+                            <a href="#">
+                                <h4>Traveller Packages</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="btn-group">
+                            <div class="buttonexport" id="buttonlist">
+                                @*<a class="btn btn-add" href="add-customer.htm">
+                                        <i class="fa fa-plus"></i> Travler Package List
+                                    </a>*@
+                            </div>
+                        </div>
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>SL</th>
+                                        <th>Image</th>
+                                        <th>Tour Type</th>
+                                        <th>Duration</th>
+                                        <th>MealPlan</th>
+                                        <th>Price</th>
+                                        <th>City Name</th>
+                                        <th>Hotel Name</th>
+                                        <th>Hotel Star</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int sr = 0;
+                                    }@{
+                                        var coll = dal.Package.ToList();
+                                        foreach (var m in coll)
+                                        {
+                                            <tr>
+                                                <td>@{sr++;}@sr</td>
+                                                <td><img src="~/img/@m.TourPic" class="img-circle" alt="User Image" width="50" height="50"> </td>
+                                                <td>@m.TourType</td>
+                                                <td>@m.Duration</td>
+                                                <td>@m.MealPlan</td>
+                                                <td>@m.TotalPrice</td>
+                                                <td>@m.DayOneArrivalCityName</td>
+                                                <td>@m.DayOneHotelName</td>
+                                                <td>@m.DayOneHotelStar</td>
+                                                @*<td><span class="label-custom label label-default">Active</span></td>*@
+
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+

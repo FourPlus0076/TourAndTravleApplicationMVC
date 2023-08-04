@@ -1,0 +1,643 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="free-educational-responsive-web-template-webEdu">
+    <meta name="author" content="webThemez.com">
+    <title>Day To Day Vacation</title>
+
+    <link rel="favicon" href="~/Assets/assets/images/favicon.html">
+
+
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="~/Assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <link href="~/Assets/css/slick.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="~/Assets/css/slick-theme.css" rel="stylesheet" type="text/css" media="screen">
+    <link rel="stylesheet" href="C:\wwwroot\js\slick.min.js">
+    <link href="~/Assets/css/slick.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="icon-bar">
+        <a href="#" class="whatsapp"><i class="fa fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100067639003024" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="google"><i class="fa fa-google"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="https://youtube.com/channel/UCdearY9Ea8D9WQ6YFiuz_Pw" class="youtube"><i class="fa fa-youtube"></i></a>
+        <a href="https://instagram.com/daytodayvacations?igshid=YmMyMTA2M2Y=" class="instagram"><i class="fa fa-instagram"></i> </a>
+    </div>
+
+    <section class="top-bar">
+        <div class="container">
+            <header>
+
+                <nav class="navbar navbar-expand-lg">
+                    <img src="~/Assets/Logo.png" alt="" class="img-fluid" style="width:140px;height:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="navbar-toggler" style="background-color:whitesmoke" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="~/Home/Index/">Home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="~/Home/AllPackage/">All Package</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="~/Home/AboutUs/">About Us</a>
+                            </li>
+
+                        </ul>
+                        <form class="form-inline">
+                            @*<a href="Daytodayvacations@gmail.com" class="get-started-btn">Daytodayvacations@gmail.com</a>*@
+                            @*<a class="get-started-btn" data-toggle="modal" data-target="#myModal">Talk to an<br /> expert</a>*@
+                            <a class="btn btn-outline-success my-1 my-sm-0" style="color:whitesmoke" href="~/Home/ContactUs/">Call Us : 9797998095</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input class="form-control mr-sm-3" placeholder="daytodayvacations@gmail.com" aria-label="Search">
+                            @*<a class="get-started-btn" data-toggle="modal" data-target="#myModal">Talk to an expert</a>*@
+
+                            <a class="btn btn-outline-success my-1 my-sm-0" data-toggle="modal" data-target="#myModal">Talk to an expert</a>
+                        </form>
+                    </div>
+                </nav>
+            </header>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #00008B;">
+                    <button type="button" class="close" style="color: #ffff;" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 order-md-last">
+                            <h4 class="mb-3">Talk to an expert</h4>
+                            <form class="needs-validation" novalidate="">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="firstName" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Name" value="" required="">
+
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <label for="lastName" class="form-label">Phone Number</label>
+                                        <input type="text" class="form-control" id="phone" placeholder="Phone Number" value="" required="">
+
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="username" class="form-label">Email</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" class="form-control" id="email" placeholder="Email" required="">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />                               
+                            </form>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-primary">How it works?</span>
+                            </h4>
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item d-flex justify-content-between lh-sm">
+                                    <div>
+                                        <h6 class="my-0">Tell us details of your holiday plan.</h6>
+                                        @*<small class="text-muted">Brief description</small>*@
+                                    </div>
+
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between lh-sm">
+                                    <div>
+                                        <h6 class="my-0">Get multiple quotes from expert agents. Compare & customize further.</h6>
+                                        @*<small class="text-muted">Brief description</small>*@
+                                    </div>
+                                    @*<span class="text-muted">$8</span>*@
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between lh-sm">
+                                    <div>
+                                        <h6 class="my-0">Tell us details of your holiday plan.</h6>
+
+                                    </div>
+                                </li>
+
+                                @*<li class="list-group-item d-flex justify-content-between">
+                                        <span>Total (USD)</span>
+                                        <strong>$20</strong>
+                                    </li>*@
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" type="submit" onclick="SubmitEnquiry()">Get Itinerary</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    @RenderBody()
+
+
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="ftr-link">
+                        <li>Gulmarg</li>
+                        <li>Pahalham </li>
+                        <li>Sonamarg</li>
+                        <li>Doodhpathri</li>
+                        <li>DalLake </li>
+                        <li>Mughal Gardens</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 hidden-md">
+                    <h4 class="ftr-h4">COI Guarantee</h4>
+                    <figure>
+                        <img src="~/Assets/images/trust.png" alt="" class="img-fluid">
+                    </figure>
+
+                </div>
+
+
+                <div class="col-md-3">
+                    <h4 class="ftr-h4">Approved By</h4>
+                    <div class="approved">
+                        <img src="~/Assets/images/logos.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <h4 class="ftr-h4">We Accept All Major Credit And Debit Cards</h4>
+                    <div class="approved">
+                        <img src="~/Assets/images/payment.png" alt="" class="img-fluid">
+
+                        <h5 class="ftr-h5">Customer Support :  </h5>
+
+                        <ul class="ftr-cnt">
+                            <li><i><img src="~/Assets/images/call-ico.png" alt="" class="img-fluid"> </i> +91 9797998095</li>
+                            <li>
+                                <i><img src="~/Assets/images/msg-ico.png" alt="" class="img-fluid"> </i>
+                                <a href="mailto:classicholidayskashmir@gmail.com">Daytodayvacations@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="copywrite">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>© Copyright 2021, Day to Day Vacations. All Rights Reserved.   <a href="http://www.fourplusinfotech.com/">Developed By FourPlusInfoTech Private Limted</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="section_mobile">
+        <div class="inner_mobile">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 p-0 col-3">
+                        <div class="_col_m">
+                            <a class="_btn_bm" href="tel:+91 9797998095"> <i class="fa fa-phone fa-1x"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 p-0">
+                        <div class="_col_bm">
+                            <a href="~/Home/SendEnquiry/" class="_btn_bm">SEND ENQUIRY</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)*@
+
+
+    <script type="text/javascript" src="~/Assets/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="~/Assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Assets/js/slick.min.js"></script>
+    <script src="~/Assets/js/jquery.slicknav.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#menu').slicknav();
+        });
+    </script>
+    <script>
+        jQuery('.testimonials').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000000,
+            dots: true,
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                        arrows: false,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                        arrows: false,
+                    }
+                }
+            ]
+        });
+    </script>
+    <script>
+        function validateForm() {
+
+
+            var digits = "0123456789";
+            // non-digit characters which are allowed in phone numbers
+            var phoneNumberDelimiters = "()- ";
+            // characters which are allowed in international phone numbers
+            // (a leading + is OK)
+            var validWorldPhoneChars = phoneNumberDelimiters + "+";
+            // Minimum no of digits in an international phone no.
+            var minDigitsInIPhoneNumber = 10;
+
+            function isInteger(s) {
+                var i;
+                for (i = 0; i < s.length; i++) {
+                    // Check that current character is number.
+                    var c = s.charAt(i);
+                    if (((c < "0") || (c > "9"))) return false;
+                }
+                // All characters are numbers.
+                return true;
+            }
+            function trim(s) {
+                var i;
+                var returnString = "";
+                // Search through string's characters one by one.
+                // If character is not a whitespace, append to returnString.
+                for (i = 0; i < s.length; i++) {
+                    // Check that current character isn't whitespace.
+                    var c = s.charAt(i);
+                    if (c != " ") returnString += c;
+                }
+                return returnString;
+            }
+            function stripCharsInBag(s, bag) {
+                var i;
+                var returnString = "";
+                // Search through string's characters one by one.
+                // If character is not in bag, append to returnString.
+                for (i = 0; i < s.length; i++) {
+                    // Check that current character isn't whitespace.
+                    var c = s.charAt(i);
+                    if (bag.indexOf(c) == -1) returnString += c;
+                }
+                return returnString;
+            }
+
+            function checkInternationalPhone(strPhone) {
+                var bracket = 3
+                strPhone = trim(strPhone)
+                if (strPhone.indexOf("+") > 1) return false
+                if (strPhone.indexOf("-") != -1) bracket = bracket + 1
+                if (strPhone.indexOf("(") != -1 && strPhone.indexOf("(") > bracket) return false
+                var brchr = strPhone.indexOf("(")
+                if (strPhone.indexOf("(") != -1 && strPhone.charAt(brchr + 2) != ")") return false
+                if (strPhone.indexOf("(") == -1 && strPhone.indexOf(")") != -1) return false
+                s = stripCharsInBag(strPhone, validWorldPhoneChars);
+                return (isInteger(s) && s.length >= minDigitsInIPhoneNumber);
+            }
+
+            var Name = document.myForm.name
+
+            if ((Name.value == null) || (Name.value == "")) {
+                alert("Please Enter your Name")
+                Name.focus()
+                return false
+            }
+
+
+            var x = document.forms["myForm"]["email"].value;
+            if (x == "") {
+                alert("Email must be filled out");
+                document.myForm.email.focus();
+                return false;
+            }
+            var atpos = x.indexOf("");
+            var dotpos = x.lastIndexOf(".");
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+                alert("Not a valid e-mail address");
+                document.myForm.email.focus();
+                return false;
+            }
+
+
+
+
+            var Phone = document.myForm.phone
+
+            if ((Phone.value == null) || (Phone.value == "")) {
+                alert("Please Enter your Phone Number")
+                Phone.focus()
+                return false
+            }
+            if (checkInternationalPhone(Phone.value) == false) {
+                alert("Please Enter a Valid Phone Number")
+
+                Phone.focus()
+                return false
+            }
+
+            var Name1 = document.myForm.city
+
+            if ((Name1.value == null) || (Name1.value == "")) {
+                alert("Please Enter your city")
+                Name1.focus()
+                return false
+            }
+            if (document.myForm.destination.selectedIndex == 0) {
+                alert("Please select your Destination");
+                document.myForm.destination.focus();
+                return false;
+            }
+
+            return true
+
+
+
+
+
+        }
+
+    </script>
+    <script>
+        function validateFormpop() {
+
+
+            var digits = "0123456789";
+            // non-digit characters which are allowed in phone numbers
+            var phoneNumberDelimiters = "()- ";
+            // characters which are allowed in international phone numbers
+            // (a leading + is OK)
+            var validWorldPhoneChars = phoneNumberDelimiters + "+";
+            // Minimum no of digits in an international phone no.
+            var minDigitsInIPhoneNumber = 10;
+
+            function isInteger(s) {
+                var i;
+                for (i = 0; i < s.length; i++) {
+                    // Check that current character is number.
+                    var c = s.charAt(i);
+                    if (((c < "0") || (c > "9"))) return false;
+                }
+                // All characters are numbers.
+                return true;
+            }
+            function trim(s) {
+                var i;
+                var returnString = "";
+                // Search through string's characters one by one.
+                // If character is not a whitespace, append to returnString.
+                for (i = 0; i < s.length; i++) {
+                    // Check that current character isn't whitespace.
+                    var c = s.charAt(i);
+                    if (c != " ") returnString += c;
+                }
+                return returnString;
+            }
+            function stripCharsInBag(s, bag) {
+                var i;
+                var returnString = "";
+                // Search through string's characters one by one.
+                // If character is not in bag, append to returnString.
+                for (i = 0; i < s.length; i++) {
+                    // Check that current character isn't whitespace.
+                    var c = s.charAt(i);
+                    if (bag.indexOf(c) == -1) returnString += c;
+                }
+                return returnString;
+            }
+
+            function checkInternationalPhone(strPhone) {
+                var bracket = 3
+                strPhone = trim(strPhone)
+                if (strPhone.indexOf("+") > 1) return false
+                if (strPhone.indexOf("-") != -1) bracket = bracket + 1
+                if (strPhone.indexOf("(") != -1 && strPhone.indexOf("(") > bracket) return false
+                var brchr = strPhone.indexOf("(")
+                if (strPhone.indexOf("(") != -1 && strPhone.charAt(brchr + 2) != ")") return false
+                if (strPhone.indexOf("(") == -1 && strPhone.indexOf(")") != -1) return false
+                s = stripCharsInBag(strPhone, validWorldPhoneChars);
+                return (isInteger(s) && s.length >= minDigitsInIPhoneNumber);
+            }
+
+            var Name = document.myFormpop.name
+
+            if ((Name.value == null) || (Name.value == "")) {
+                alert("Please Enter your Name")
+                Name.focus()
+                return false
+            }
+
+
+            var x = document.forms["myFormpop"]["email"].value;
+            if (x == "") {
+                alert("Email must be filled out");
+                document.myFormpop.email.focus();
+                return false;
+            }
+            var atpos = x.indexOf("");
+            var dotpos = x.lastIndexOf(".");
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+                alert("Not a valid e-mail address");
+                document.myFormpop.email.focus();
+                return false;
+            }
+
+
+
+
+            var Phone = document.myFormpop.phone
+
+            if ((Phone.value == null) || (Phone.value == "")) {
+                alert("Please Enter your Phone Number")
+                Phone.focus()
+                return false
+            }
+            if (checkInternationalPhone(Phone.value) == false) {
+                alert("Please Enter a Valid Phone Number")
+
+                Phone.focus()
+                return false
+            }
+
+            var Name1 = document.myFormpop.city
+
+            if ((Name1.value == null) || (Name1.value == "")) {
+                alert("Please Enter No pax")
+                Name1.focus()
+                return false
+            }
+            var Name2 = document.myFormpop.city
+            if ((Name2.value == null) || (Name2.value == "")) {
+                alert("Please Enter your Message")
+                Name2.focus()
+                return false
+            }
+
+
+            return true
+
+
+
+
+
+        }
+
+    </script>
+    <script>
+        /**
+* =======================================
+* NAVIGATION SCROLL
+* =======================================
+*/
+
+        // Select all links with hashes
+        jQuery('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function (event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                    &&
+                    location.hostname == this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = jQuery(this.hash);
+                    target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        jQuery('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 900, function () {
+                            // Callback after animation
+                            // Must change focus!
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
+                }
+            });
+    </script>
+    <script>
+        var sections = $('.tab--section')
+            , nav = $('.Sticky-typofloan-nav')
+            , nav_height = 90;
+
+        $(window).on('scroll', function () {
+            var cur_pos = $(this).scrollTop();
+
+            sections.each(function () {
+                var top = $(this).offset().top - nav_height,
+                    bottom = top + $(this).outerHeight();
+
+                if (cur_pos >= top && cur_pos <= bottom) {
+                    nav.find('.page-scroll').removeClass('active');
+                    sections.removeClass('active');
+
+                    $(this).addClass('active');
+                    nav.find('a.page-scroll[href="#' + $(this).attr('id') + '"]').addClass('active');
+                }
+            });
+        });
+
+        nav.find('.page-scroll').on('click', function () {
+            var $el = $(this)
+                , id = $el.attr('href');
+
+            $('html, body').animate({
+                scrollTop: $(id).offset().top - nav_height
+            }, 400);
+
+            return false;
+        });
+
+        function SubmitEnquiry() {
+            debugger;
+            var GetItineraryInfo = {
+                'Name': $("#name").val(),
+                'Email': $("#email").val(),
+                'Phone': $("#phone").val(),
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/Home/GetItineraryInfo/',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: { GetItineraryInfo: GetItineraryInfo },
+                success: function (result) {
+
+                    alert('Thanks You HR will Contact Soon');
+                    location.reload();
+                },
+                error: function () {
+                    alert('Thanks You HR will Contact Soon');
+                    location.reload();
+                }
+            })
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>

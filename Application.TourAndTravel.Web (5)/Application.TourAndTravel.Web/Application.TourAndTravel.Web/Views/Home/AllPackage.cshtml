@@ -1,0 +1,114 @@
+﻿@using Application.TourAndTravel.Web.Models
+@{
+    DBAccessVM dal = new DBAccessVM();
+}
+
+@{
+    ViewBag.Title = "AllPackage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<img src="~/Assets/images/kasmir.jpeg" style="height:700px; width:100%" />
+
+<section id="top-packages">
+    <div class="best-price"><img src="~/Assets/images/best-price.png" alt="" class="img-fluid"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="h1-global">Our Best Selling Tour Packages</h1>
+            </div>
+        </div>
+        <div class="row">
+            @{
+                var coll = dal.PackagesByAdmin.Where(a => a.IsDelete == true).ToList();
+                //var coll = dal.PackagesByAdmin.ToList();
+                foreach (var m in coll)
+                {
+                    <div class="col-md-4">
+                        <div class="packages">
+                            <figure>
+                                @*<img src="~/Assets/assets/images/packages/Best-Of-Shimla-And-Manali.jpg" alt="" class="img-fluid">*@
+                                <img src="~/img/@m.Image" alt="" style="height:300px; width:100%;" class="img-fluid">
+                                <div class="tag">25% OFF</div>
+                                <div class="budget">
+                                    <img src="~/Assets/images/budget.png" alt="" class="img-fluid">
+                                </div>
+                            </figure>
+                            <h2> @m.PlaceName</h2>
+                            <h3>Duration: <span>@m.Duretion</span> </h3>
+                            <ul class="itnry">
+                                <li class="active">
+                                    <figure>
+                                        <img src="~/Assets/images/flight-icon.png" alt="" class="img-fluid">
+                                    </figure>
+                                    <p>Flight</p>
+                                </li>
+
+                                <li>
+                                    <figure>
+                                        <img src="~/Assets/images/hotel-icon.png" alt="" class="img-fluid">
+                                    </figure>
+                                    <p>Hotels</p>
+                                </li>
+
+                                <li>
+                                    <figure>
+                                        <img src="~/Assets/images/Sightseeing-icon.png" alt="" class="img-fluid">
+                                    </figure>
+                                    <p>Sightseeing</p>
+                                </li>
+
+                                <li>
+                                    <figure>
+                                        <img src="~/Assets/images/meals-icon.png" alt="" class="img-fluid">
+                                    </figure>
+                                    <p>Meals</p>
+                                </li>
+
+                                <li>
+                                    <figure>
+                                        <img src="~/Assets/images/transfer-icon.png" alt="" class="img-fluid">
+                                    </figure>
+                                    <p>Transfers</p>
+                                </li>
+
+                            </ul>
+
+                            <div class="inclusions">
+                                <h5>Package Inclusions:</h5>
+
+                                <ul class="pkg-incusion">
+                                    <li>@m.PackageInclusions</li>
+                                    <li>@m.PackageInclusions1</li>
+                                </ul>
+
+
+
+
+
+                            </div>
+
+
+                            <div class="price-tag">
+                                <div class="price">
+
+                                    <i class="fa fa-rupee"></i>  @m.PackagePrice  Onwards
+                                </div>
+                                <div class="btn-detail">
+                                    <a class="btn btn-detail" href="@Url.Action("PackageDetails", "Home", new { PackageTypeID = @m.PackageTypeID })">VIew Details</a>
+                                    @*<a href="~/Home/PackageDetails/" class="btn btn-detail">VIew Details</a>*@
+                                </div>
+                                <div class="btn-detail btn-mobile">
+                                    <a href="~/Home/SendEnquiry/" class="btn btn-detail">Send Enquiry</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                }
+            }           
+        </div>
+    </div>
+</section>

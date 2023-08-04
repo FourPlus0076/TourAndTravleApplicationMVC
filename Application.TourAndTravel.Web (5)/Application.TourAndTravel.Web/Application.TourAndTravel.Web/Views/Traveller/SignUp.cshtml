@@ -1,0 +1,135 @@
+﻿@model Application.TourAndTravel.TravellerRegistration
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- blog breadcrumb version one strat here -->
+<section class="breadcrumb-blog-version-one">
+    <div class="single-bredcurms" style="background-image:url('../../Assets/images/bercums/contact-page.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="bredcrums-content">
+                        <h2>Traveller Registration</h2>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li class="active"><a href="#">Traveller Registration</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- blog breadcrumb version one end here -->
+
+
+<section class="section-paddings">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="contact-title">
+                    <h2>Traveller Sign Up</h2>
+                </div>
+                <div class="address">
+                    <p>
+                        <br>If you have already an account. Please <a href="#" class="btn btn-primary">Login</a>
+                    </p>
+                </div>
+                <div>
+                    <img src="~/Assets/images/signup-here.png" />
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="contact-title">
+                    <h2>Fill your information</h2>
+                </div>
+                <div class="contact-form">
+                    <div id="contact">
+                        <div id="message">
+                            @if (TempData["msg"] != null)
+                            {
+                                <div class="alert alert-success alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Information!</strong> @TempData["msg"]
+                                </div>
+                            }
+
+                        </div>
+                        <!-- Contact Form -->
+                        @using (Html.BeginForm("SignUp", "Traveller", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(a => a.TravellerID);
+                            @Html.ValidationSummary(true);
+                            <div class="row form-group">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.TravellerCompanyName, new { @placeholder = "Enter Company Name", @required = "" })
+                                        @Html.ValidationMessageFor(a => a.TravellerCompanyName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.TravellerName, new { @placeholder = "Enter Your Name", @required = "" })
+                                        @Html.ValidationMessageFor(a => a.TravellerName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.TravellerMobileNo, new { @placeholder = "Enter Mobile No", @required = "" })
+                                        @Html.ValidationMessageFor(a => a.TravellerMobileNo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.TravellerEmail, new { @placeholder = "Enter Email ID", @type = "email", @required = "" })
+                                        @Html.ValidationMessageFor(a => a.TravellerEmail, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.TravellerGSTIN_No, new { @placeholder = "Enter GSTIN No", @required = "" })
+                                        @Html.ValidationMessageFor(a => a.TravellerGSTIN_No, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.TravellerPAN_No, new { @placeholder = "Enter PAN No", @required = "" })
+                                        @Html.ValidationMessageFor(a => a.TravellerPAN_No, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.PasswordFor(a => a.TravellerPassword, new { @placeholder = "Enter Password", @required = "" })
+                                @Html.ValidationMessageFor(a => a.TravellerPassword, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.TextAreaFor(a => a.TravellerAddress, new { @placeholder = "Enter Address...", @required = "" })
+                                @Html.ValidationMessageFor(a => a.TravellerAddress, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Registration</button>
+                            </div>
+                        }
+                        <!--/ End Contact Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Assets/js/vendor/jquery-3.2.0.min.js"></script>
+<script src="~/Assets/js/JQueryValidate/jquery.validate.min.js"></script>
+<script src="~/Assets/js/JQueryValidate/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,200 @@
+﻿@using Application.TourAndTravel
+@model PackageTypeByAdmin
+@{
+    ViewBag.Title = "PackageTypeByAdmin";
+    Layout = "~/Views/Shared/_TravellerLayout.cshtml";
+}
+
+<div class="row">
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-sm alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <i class="fa fa-check"></i><strong>Information !</strong> @TempData["msg"]
+        </div>
+    }
+    <!-- Form controls -->
+    <div class="col-sm-12">
+        <div class="panel panel-bd lobidrag">
+            <div class="panel-heading">
+                <div class="btn-group" id="buttonlist">
+                    <a class="btn btn-add " href="/admin/List_PackageTypeByAdmin">
+                        <i class="fa fa-list"></i> Manage Package Type
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("PackageTypeByAdmin", "admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(m => m.PackageTypeID)
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Package Name</label>
+                                @Html.TextBoxFor(m => m.PackageName, new { @class = "form-control", @placeholder = "Package Name", @required = "" })
+                                @Html.ValidationMessageFor(m => m.PackageName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Place Name</label>
+                                @Html.TextBoxFor(m => m.PlaceName, new { @class = "form-control", @placeholder = "Place Name", @required = "" })
+                                @Html.ValidationMessageFor(m => m.PlaceName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Duretion(9 Days/10 Night)</label>
+                                @Html.TextBoxFor(m => m.Duretion, new { @class = "form-control", @placeholder = "Duretion(9 Days/10 Night)", @required = "" })
+                                @Html.ValidationMessageFor(m => m.Duretion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Price</label>
+                                @Html.TextBoxFor(m => m.PackagePrice, new { @class = "form-control", @placeholder = "Tour Package Price", @required = "" })
+                                @Html.ValidationMessageFor(m => m.PackagePrice, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Package Description</label>
+                                @Html.TextBoxFor(m => m.PackageDescription, new { @class = "form-control", @placeholder = "Package Description"})
+                                @Html.ValidationMessageFor(m => m.PackageDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Package Inclusions</label>
+                                @Html.TextBoxFor(m => m.PackageInclusions, new { @class = "form-control", @placeholder = "Package Inclusions"})
+                                @Html.ValidationMessageFor(m => m.PackageInclusions, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Package Inclusions-1</label>
+                                @Html.TextBoxFor(m => m.PackageInclusions1, new { @class = "form-control", @placeholder = "Package Inclusions1"})
+                                @Html.ValidationMessageFor(m => m.PackageInclusions1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="btn-group" id="buttonlist">
+                        <a class="btn btn-add " href="#">
+                            <i class="fa fa-list"></i> Day Wise Itinerary
+                        </a>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-1</label>
+                                @Html.TextBoxFor(m => m.Day1, new { @class = "form-control", @placeholder = "Day-1"})
+                                @Html.ValidationMessageFor(m => m.Day1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-2</label>
+                                @Html.TextBoxFor(m => m.Day2, new { @class = "form-control", @placeholder = "Day-2"})
+                                @Html.ValidationMessageFor(m => m.Day2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-3</label>
+                                @Html.TextBoxFor(m => m.Day3, new { @class = "form-control", @placeholder = "Day-3"})
+                                @Html.ValidationMessageFor(m => m.Day3, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>                   
+                    <div class="row">
+                         <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-4</label>
+                                @Html.TextBoxFor(m => m.Day4, new { @class = "form-control", @placeholder = "Day-4"})
+                                @Html.ValidationMessageFor(m => m.Day4, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-5</label>
+                                @Html.TextBoxFor(m => m.Day5, new { @class = "form-control", @placeholder = "Day-5"})
+                                @Html.ValidationMessageFor(m => m.Day5, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-6</label>
+                                @Html.TextBoxFor(m => m.Day6, new { @class = "form-control", @placeholder = "Day-6"})
+                                @Html.ValidationMessageFor(m => m.Day6, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-7</label>
+                                @Html.TextBoxFor(m => m.Day7, new { @class = "form-control", @placeholder = "Day-7"})
+                                @Html.ValidationMessageFor(m => m.Day7, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-8</label>
+                                @Html.TextBoxFor(m => m.Day8, new { @class = "form-control", @placeholder = "Day8"})
+                                @Html.ValidationMessageFor(m => m.Day8, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-9</label>
+                                @Html.TextBoxFor(m => m.Day9, new { @class = "form-control", @placeholder = "Day-9"})
+                                @Html.ValidationMessageFor(m => m.Day9, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>                    
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Day-10</label>
+                                @Html.TextBoxFor(m => m.Day10, new { @class = "form-control", @placeholder = "Day-10" })
+                                @Html.ValidationMessageFor(m => m.Day10, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Term & Condition</label>
+                                @Html.TextBoxFor(m => m.TermAndCondition, new { @class = "form-control", @placeholder = "Term & Condition" })
+                                @Html.ValidationMessageFor(m => m.TermAndCondition, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Image</label>
+                                @Html.TextBoxFor(m => m.Image, new { @class = "form-control", @type = "file", @required = "" })
+                                @Html.ValidationMessageFor(m => m.Image, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">                       
+                        <div class="col-sm-6">
+                            <div class="reset-button">
+                                <button type="submit" class="btn btn-success m-t-20">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+  

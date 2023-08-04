@@ -1,0 +1,83 @@
+﻿@model Application.TourAndTravel.Web.Models.LoginVM
+@{
+    ViewBag.Title = "TravellerLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcrumb-blog-version-one">
+    <div class="single-bredcurms" style="background-image:url('../../Assets/images/bercums/contact-page.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="bredcrums-content">
+                        <h2>Login</h2>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li class="active"><a href="#">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- blog breadcrumb version one end here -->
+<section class="section-paddings">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="contact-title">
+                    <h2>Traveller Login</h2>
+                </div>
+                <div class="address">
+                    <p>
+                        If you don't have an account,Please <a href="#">Register</a> First.
+
+                    </p>
+                    <img src="~/Assets/images/signup-here.png" />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="contact-title">
+                    <h2>Login</h2>
+                </div>
+                <div class="contact-form">
+                    <div id="contact">
+                        <div id="message">
+                            @if (TempData["msg"] != null)
+                            {
+                                <div class="alert alert-success alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Information!</strong> @TempData["msg"]
+                                </div>
+                            }
+
+                        </div>
+                        <!-- Contact Form -->
+                        @using (Html.BeginForm("TravellerLogin", "Account", FormMethod.Post))
+                        {
+                            @Html.ValidationSummary(true);
+                            <div class="form-group">
+                                @Html.TextBoxFor(a => a.Email, new { @placeholder = "Enter UserName", @required = "", @type = "email" })
+                                @Html.ValidationMessageFor(a => a.Email, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.PasswordFor(a => a.Password, new { @placeholder = "Enter Password", @required = "" })
+                                @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="button primary"><i class="fa fa-key"></i>Login</button>
+                            </div>
+                        }
+                        <!--/ End Contact Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Assets/js/JQueryValidate/jquery.validate.min.js"></script>
+<script src="~/Assets/js/JQueryValidate/jquery.validate.unobtrusive.min.js"></script>

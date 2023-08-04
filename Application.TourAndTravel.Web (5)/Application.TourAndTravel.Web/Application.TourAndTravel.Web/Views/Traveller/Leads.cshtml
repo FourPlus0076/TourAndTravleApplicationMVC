@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Application.TourAndTravel.BookingInfo>
+@using Application.TourAndTravel.Web.Models
+@{
+    ViewBag.Title = "Leads";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    DBAccessVM dBAccessVM = new DBAccessVM();
+    TravellerRepositoris travellerRepositoris = new TravellerRepositoris();
+
+    long count = 0;
+    string userName = string.Empty;
+    if (User.Identity.IsAuthenticated)
+    {
+        userName = User.Identity.Name;
+    }
+    bool xy = travellerRepositoris.CheckWalletAmount(userName);
+}
+
+<div class="row">
+    <div id="message">
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Information!</strong> @TempData["msg"]
+            </div>
+        }
+
+    </div>
+    @foreach (var data in Model)
+    {
+        int _leadCount = dBAccessVM.isLeadGenerated.Where(a => a.LeadID == data.BookingInfoID).Select(a => a.SoldLeadCount).Count();
+        count = dBAccessVM.isLeadGenerated.Where(a => a.TravellerUserName == userName && a.LeadID == data.BookingInfoID).Select(a => a.LeadID).FirstOrDefault();
+        <div class="col-sm-6">
+            <div class="panel panel-bd lobidrag">
+
+                <div class="panel-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr class="alert alert-info">
+                                    <td>Lead ID</td>
+                                    <td>@data.BookingInfoID</td>
+
+                                    <td>Date</td>
+                                    <td>@data.CreatedDate.ToString("dd MMM, yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <td>No of Adults and Kids (Adults/Kids)</td>
+                                    <td colspan="3"><strong>@data.NoOfAdults</strong> Adults and <strong>@data.NoOfKids</strong> Kids</td>
+                                </tr>
+                                <tr>
+                                    <td>Destination</td>
+                                    <td colspan="3">@data.Destination</td>
+                                </tr>
+                                <tr>
+                                    <td>Duration</td>
+                                    <td colspan="3">@data.Duration</td>
+                                </tr>
+                                <tr>
+                                    <td>Departure Date</td>
+                                    <td colspan="3">@data.DepartureDate.ToString("dd MMMM, yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td colspan="3"><span style="color:red">xxxxxxxxxx</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Email ID</td>
+                                    <td colspan="3"><span style="color:red">xxxxxxxxxx</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile No</td>
+                                    <td colspan="3"><span style="color:red">xxxxxxxxxx</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Requirements</td>
+                                    <td colspan="3">@data.Requirements</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <address class="text-right">
+                                            <b>Price ₹ : <span id="ContentPlaceHolder1_repeter1_lbprice_0" style="color:Blue;">75</span></b><br>
+                                            <form action="/Traveller/SellLead" method="post">
+                                                <input type="hidden" id="leadID" name="leadID" value="@data.BookingInfoID" />
+                                                @if (xy != true)
+                                                {
+                                                    <button type="button" class="btn btn-primary disabled">Recharge your wallet</button><br />
+                                                    <small style="color:red">You have insufficent balance, you have minimum 75 rupees only to buy this lead.</small>
+                                                }
+                                                else if (_leadCount >= 3)
+                                                {
+                                                    <button type="button" class="btn btn-danger disabled">Sold Out</button>
+                                                }
+                                                else if (count != 0)
+                                                {
+                                                    <button type="button" title="You have already purchased this lead." class="btn btn-danger disabled">Sold Out</button>
+                                                }
+                                                else
+                                                {
+                                                    <button type="submit" class="btn btn-primary">Buy Now</button>
+                                                }
+                                            </form>
+
+                                        </address>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

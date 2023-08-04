@@ -1,0 +1,95 @@
+﻿@model Application.TourAndTravel.RechargeInfo
+@{
+    ViewBag.Title = "RechargeByAdmin";
+    Layout = "~/Views/Shared/_TravellerLayout.cshtml";
+}
+
+        <div class="row">
+            @if (TempData["msg"] != null)
+            {
+                <div class="alert alert-sm alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <i class="fa fa-check"></i><strong>Information !</strong> @TempData["msg"]
+                </div>
+            }
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <a class="btn btn-add " href="/admin/ListRechargeByAdmin">
+                                <i class="fa fa-list"></i> Recharge List
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("RechargeByAdmin", "admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(m => m.RechargeID)
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Company Name</label>
+                                        @Html.DropDownListFor(m => m.TravellerID,new SelectList(ViewBag.Companies,"TravellerID","TravellerCompanyName"),"--Select Comapny--" ,new { @class = "form-control", @placeholder = "Company Name", @required = "" })
+                                        @Html.ValidationMessageFor(m => m.TravellerID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Travel Agent Name</label>
+                                        @Html.TextBoxFor(m => m.TravelAgentName, new { @class = "form-control", @placeholder = "Travel Agent Name", @required = "",@readonly="readonly" })
+                                        @Html.ValidationMessageFor(m => m.TravelAgentName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Travel Agent Email</label>
+                                        @Html.TextBoxFor(m => m.TravelAgentEmail, new { @class = "form-control", @placeholder = "Travel Agent Email", @required = "",@readonly="readonly" })
+                                        @Html.ValidationMessageFor(m => m.TravelAgentEmail, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Credit</label>
+                                        @Html.TextBoxFor(m => m.WalletBalance, new { @class = "form-control", @placeholder = "Credit", @required = "" })
+                                        @Html.ValidationMessageFor(m => m.WalletBalance, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="reset-button">
+                                        <button type="submit" class="btn btn-success  m-t-20">Recharge</button>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        }
+
+                    </div>
+                        </div>
+                    </div>
+                </div>
+        <script src="~/admin/assets/plugins/jQuery/jquery-1.12.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#TravellerID').change(function () {
+            var travellerID = $(this).val();
+            $.get("/Traveller/GetTravellerInfo", { travellerID: travellerID }, function (response) {
+                if (response != null) {
+                    console.log(response);
+                $("#TravelAgentName").val(response.TravellerName);
+                $("#TravelAgentEmail").val(response.TravellerEmail);
+            }
+            else {
+                alert("No Data Found");
+            }
+            });
+        })
+    })
+</script>
+            

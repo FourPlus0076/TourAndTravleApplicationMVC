@@ -1,0 +1,227 @@
+﻿﻿@using Application.TourAndTravel.Web.Models
+@{
+    DBAccessVM dal = new DBAccessVM();
+}
+@{
+    ViewBag.Title = "PackageDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<img src="~/Assets/images/RoyalImages.jpeg" style="height:700px; width:100%" />
+
+<section id="about-sec">
+    <div class="container">
+        <div class="row">
+            @{
+                int packageId = 0;
+                if (TempData["PID"] != null)
+                {
+                    packageId = Convert.ToInt32(TempData["PID"]);
+                }
+
+                var coll = dal.PackagesByAdmin.Where(a => a.PackageTypeID == packageId).FirstOrDefault();
+
+                <div class="col-md-5">
+                    <div class="packages">
+                        <figure>
+                            @*<img src="~/Assets/assets/images/packages/Best-Of-Shimla-And-Manali.jpg" alt="" class="img-fluid">*@
+                            <img src="~/img/@coll.Image" alt="" style="height:340px; width:600px;" class="img-fluid">
+                            <div class="tag">25% OFF</div>
+                            <div class="budget">
+                                <img src="~/Assets/images/budget.png" alt="" class="img-fluid">
+                            </div>
+                        </figure>
+                        <h2> @coll.PlaceName</h2>
+                        <h3>Duration: <span>@coll.Duretion</span> </h3>
+                        <ul class="itnry">
+                            <li class="active">
+                                <figure>
+                                    <img src="~/Assets/images/flight-icon.png" alt="" class="img-fluid">
+                                </figure>
+                                <p>Flight</p>
+                            </li>
+
+                            <li>
+                                <figure>
+                                    <img src="~/Assets/images/hotel-icon.png" alt="" class="img-fluid">
+                                </figure>
+                                <p>Hotels</p>
+                            </li>
+
+                            <li>
+                                <figure>
+                                    <img src="~/Assets/images/Sightseeing-icon.png" alt="" class="img-fluid">
+                                </figure>
+                                <p>Sightseeing</p>
+                            </li>
+
+                            <li>
+                                <figure>
+                                    <img src="~/Assets/images/meals-icon.png" alt="" class="img-fluid">
+                                </figure>
+                                <p>Meals</p>
+                            </li>
+
+                            <li>
+                                <figure>
+                                    <img src="~/Assets/images/transfer-icon.png" alt="" class="img-fluid">
+                                </figure>
+                                <p>Transfers</p>
+                            </li>
+
+                        </ul>
+
+                        <div class="inclusions">
+                            <h5>Package Inclusions:</h5>
+
+                            <ul class="pkg-incusion">
+                                <li>@coll.PackageInclusions</li>
+                                <li>@coll.PackageInclusions1</li>
+                            </ul>
+                        </div>
+                        <div class="price-tag">
+                            <div class="price">
+                                <i class="fa fa-rupee"></i>  @coll.PackagePrice  Onwards
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                
+            <hr />
+
+            <div class="col-md-7">
+                <div class="m-hidden">
+                    <div class="why-bx">
+                        <h1>Why <span>Us</span></h1>
+                        <ul class="why-us">
+                            <li>
+                                <figure><img src="~/Assets/images/why-us-1.png" alt="" class="img-fluid"></figure>
+                                <h4>Approved by Ministry of Tourism, Government of India</h4>
+                            </li>
+                            <li>
+                                <figure><img src="~/Assets/images/why-us-2.png" alt="" class="img-fluid"></figure>
+                                <h4>Trusted name in <br>Kashmir Tour Packages</h4>
+                            </li>
+
+                            <li>
+                                <figure><img src="~/Assets/images/why-us-3.png" alt="" class="img-fluid"></figure>
+                                <h4>Best B to B <br>Service Provider </h4>
+                            </li>
+
+                            <li>
+                                <figure><img src="~/Assets/images/why-us-4.png" alt="" class="img-fluid"></figure>
+                                <h4>Value for <br>Money Packages</h4>
+                            </li>
+
+                            <li>
+                                <figure><img src="~/Assets/images/why-us-5.png" alt="" class="img-fluid"></figure>
+                                <h4>Customized <br>Solutions</h4>
+                            </li>
+
+                            <li>
+                                <figure><img src="~/Assets/images/why-us-6.png" alt="" class="img-fluid"></figure>
+                                <h4>Personalized <br>Services</h4>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <br />
+                    <div class="why-bx">
+                        <h4><b>Term & Condition : </b> <span style="font-size: 15px;"> @coll.TermAndCondition</span></h4><br />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <a data-toggle="modal" data-target="#myModal" class="btn requirement">Call Now for customized packages</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />           
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="m-hidden">
+                            <div class="why-bx">
+                                
+                                <br /><br />
+                                <h2><span class="inclusions"><b>Day Wise Itinerary</b></span></h2><br />
+
+                                <h4><b>Day-1 : </b> <span style="font-size: 15px;"> @coll.Day1</span></h4><br />
+                                <h4><b>Day-2 : </b> <span style="font-size: 15px;"> @coll.Day2</span></h4><br />
+                                <h4><b>Day-3 : </b> <span style="font-size: 15px;"> @coll.Day3</span></h4><br />
+                                <h4><b>Day-4 : </b> <span style="font-size: 15px;"> @coll.Day4</span></h4><br />
+                                <h4><b>Day-5 : </b> <span style="font-size: 15px;"> @coll.Day5</span></h4><br />
+                                <h4><b>Day-6 : </b> <span style="font-size: 15px;"> @coll.Day6</span></h4><br />
+                                <h4><b>Day-7 : </b> <span style="font-size: 15px;"> @coll.Day7</span></h4><br />
+                                <h4><b>Day-8 : </b> <span style="font-size: 15px;"> @coll.Day8</span></h4><br />
+                                <h4><b>Day-9 : </b> <span style="font-size: 15px;"> @coll.Day9</span></h4><br />
+                                <h4><b>Day-10 : </b> <span style="font-size: 15px;"> @coll.Day10</span></h4><br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    $(document).ready(function () {
+    });
+    $(function () {
+        $("#DepartureDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "dd-MM-yy",
+            language: "tr"
+        });
+
+
+function SubmitEnquiry() {
+    debugger;
+    //var name = $("#name").val();
+    //var email = $("#email").val();
+    //var gender = $("#gender").val();
+    var Url = "Home/Index"
+    var bookingInfo = {
+        'Name': $("#name").val(),
+        'Email': $("#email").val(),
+        'MobileNumber': $("#mobile").val(),
+        'Comment': $("#comment").val(),
+        'NoOfPax': $("#noofpax").val(),
+        'NoOfDay': $("#noofday").val()
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/Home/SendEnquiry',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+        data: { bookingInfo: bookingInfo },
+        success: function (result) {
+            debugger;
+            alert('Successfully received Data');            
+        },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    })
+}
+
+</script>

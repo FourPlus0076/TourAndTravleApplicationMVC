@@ -1,0 +1,103 @@
+﻿@using Application.TourAndTravel.Web.Models
+@{
+    DBAccessVM dal = new DBAccessVM();
+}
+@{
+    ViewBag.Title = "ListRechargeByAdmin";
+    Layout = "~/Views/Shared/_TravellerLayout.cshtml";
+}
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonexport">
+                            <a href="#">
+                                <h4>Recharge Information</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="btn-group">
+                            <div class="buttonexport" id="buttonlist">
+                                <a class="btn btn-add" href="/admin/RechargeByAdmin/">
+                                        <i class="fa fa-plus"></i> Recharge
+                                    </a>
+                            </div>
+                            @if (TempData["msg"] != null)
+                            {
+                                <div class="alert alert-sm alert-success alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <i class="fa fa-check"></i><strong>Information !</strong> @TempData["msg"]
+                                </div>
+                            }
+                        </div>
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>SL</th>
+                                        <th>Company Name</th>
+                                        <th>Agent Name</th>
+                                        <th>Agent Email</th>
+                                        <th>Wallet Balance</th>
+                                        <th>Created Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int sr = 0;
+                                    }@{
+                                        var coll = dal.Recharge.Where(a => a.IsDelete == true).ToList();
+                                        foreach (var m in coll)
+                                        {
+                                            string comapnyName = dal.travellerRegistration.Where(a => a.TravellerID == m.TravellerID).Select(a => a.TravellerCompanyName).FirstOrDefault();
+                                            <tr>
+                                                <td>@{sr++;}@sr</td>
+                                                <td>@comapnyName</td>
+                                                <td>@m.TravelAgentName</td>
+                                                <td>@m.TravelAgentEmail</td>
+                                                <td>@m.WalletBalance</td>
+                                                <td>@m.CreatedDate</td>
+                                                <td>
+                                                    <span class="label-custom label label-default">
+                                                        @if (m.IsDelete == true)
+                                                        {
+                                                            <span>Yes</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>No</span>
+                                                        }
+                                                </span>
+                                            </td>
+
+                                            <td>
+                                                <a href="@Url.Action("RechargeByAdmin", "admin", new { rechargeID = m.RechargeID })" class="btn btn-xs btn-info"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="@Url.Action("DeleteRechargeInfo", "admin", new { rechargeID = m.RechargeID })" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a>
+                                                @if (m.IsDelete == true)
+                                                {
+                                                    <a href="@Url.Action("activate", "admin", new { rechargeID = m.RechargeID })" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("activate", "admin", new { rechargeID = m.RechargeID })" class="btn btn-xs btn-primary"><i class="fa fa-check-square"></i></a>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+

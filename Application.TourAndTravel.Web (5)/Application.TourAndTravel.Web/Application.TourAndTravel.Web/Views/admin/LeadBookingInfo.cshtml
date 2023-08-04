@@ -1,0 +1,71 @@
+﻿@using Application.TourAndTravel.Web.Models
+@{
+    DBAccessVM dal = new DBAccessVM();
+}
+@{
+    ViewBag.Title = "LeadBookingInfo";
+    Layout = "~/Views/Shared/_TravellerLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-bd lobidrag">
+            <div class="panel-heading">
+                <div class="btn-group" id="buttonexport">
+                    <a href="#">
+                        <h4>Lead Information</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                <div class="btn-group">
+                    <div class="buttonexport" id="buttonlist">
+                        @*<a class="btn btn-add">
+                                <i class="fa fa-plus"></i> Lead Information
+                            </a>*@
+                    </div>
+                </div>
+                <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                <div class="table-responsive">
+                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr class="info">
+                                <th>SL</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>No Of Pax</th>
+                                <th>Duration</th>                                                              
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int sr = 0;
+                            }
+                            @{
+                                var coll = dal.bookingInfo.ToList();
+                                foreach (var m in coll)
+                                {
+                                    <tr>
+                                        <td>@{sr++;}@sr</td>
+                                        <td>@m.ClientName</td>
+                                        <td>@m.MobileNo</td>
+                                        <td>@m.Email</td>
+                                        <td>@m.NoOfPax</td>                                       
+                                        <td>@m.Duration</td>
+                                        <td>@m.message</td>
+                                        @*<td><span class="label-custom label label-default">Active</span></td>*@
+
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

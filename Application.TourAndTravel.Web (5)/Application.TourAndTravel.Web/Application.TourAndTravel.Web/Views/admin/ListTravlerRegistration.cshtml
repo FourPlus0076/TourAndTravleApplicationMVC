@@ -1,0 +1,78 @@
+﻿@using Application.TourAndTravel.Web.Models
+@{
+    DBAccessVM dal = new DBAccessVM();
+}
+@{
+    ViewBag.Title = "ListTravlerRegistration";
+    Layout = "~/Views/Shared/_TravellerLayout.cshtml";
+}
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonexport">
+                            <a href="#">
+                                <h4>Travler Registration</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="btn-group">
+                            <div class="buttonexport" id="buttonlist">
+                                @*<a class="btn btn-add" href="add-customer.htm">
+                                        <i class="fa fa-plus"></i> Add Customer
+                                    </a>*@
+                            </div>
+
+                        </div>
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <td>SL</td>
+                                        <th>Name</th>
+                                        <th>Company Name</th>
+                                        <th>Email Address</th>
+                                        <th>Address</th>
+                                        <th>Mobile No</th>
+                                        @*<th>Password</th>*@
+                                        <th>GSTIN No</th>
+                                        <th>PAN No</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int sr = 0;
+                                    }
+                                    @{
+                                        var coll = dal.travellerRegistration.ToList();
+                                        foreach (var m in coll)
+                                        {
+                                            <tr>
+                                                <td>@{sr++;}@sr</td>
+                                                <td>@m.TravellerName</td>
+                                                <td>@m.TravellerCompanyName</td>
+                                                <td>@m.TravellerEmail</td>
+                                                <td>@m.TravellerAddress</td>
+                                                <td>@m.TravellerMobileNo</td>
+                                                @*<td>@m.TravellerPassword</td>*@
+                                                <td>@m.TravellerGSTIN_No</td>
+                                                <td>@m.TravellerPAN_No</td>
+                                                <td><span class="label-custom label label-default">Active</span></td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+

@@ -1,0 +1,92 @@
+﻿@using Application.TourAndTravel.Web.Models
+@{ 
+    DBAccessVM dal = new DBAccessVM();
+}
+@{
+    ViewBag.Title = "ManageAddPackage";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonexport">
+                            <a href="javascript:void">
+                                <h4>Manage Package</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="btn-group">
+                            <div class="buttonexport" id="buttonlist">
+                                <a class="btn btn-add" href="/Traveller/AddPackage">
+                                    <i class="fa fa-plus"></i>Add New Package
+                                </a>
+                            </div>
+                          
+                        </div>
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>SL</th>
+                                        <th>Photo</th>
+                                        <th>Tour Type</th>
+                                        <th>Duration</th>
+                                        <th>Meal Plan</th>
+                                        <th>Price</th>
+                                        <th>Create Date</th>                                    
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ 
+                                        int sr = 0;
+                                    }@{
+                                        //var coll = dal.PackagesByAdmin.Where(a => a.IsDelete == false).ToList();
+                                        var coll = dal.Package.Where(a=>a.IsDelete==false).ToList();
+                                        foreach (var m in coll)
+                                        {
+                                            <tr>
+                                                <td>@{sr++;}@sr</td>
+                                                <td><img src="~/img/@m.TourPic" class="img-circle" alt="User Image" width="50" height="50"> </td>
+                                                <td>@m.TourType</td>
+                                                <td>@m.Duration</td>
+                                                <td>@m.MealPlan</td>
+                                                <td>@m.TotalPrice</td>
+                                                <td>@m.CreatedDate</td>                                             
+                                                <td>
+                                                    <span class="label-custom label label-default">
+                                                        @if (m.IsDelete == true)
+                                                    {
+                                                        <span>Yes</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>No</span>
+                                                    }
+                                                </span>
+                                            </td>
+                                                <td>
+                                                    <a href="@Url.Action("AddPackage","Traveller", new { packageID=m.PackageID})" class="btn btn-xs btn-info"><i class="fa fa-pencil-square"></i></a>
+                                                    <a href="@Url.Action("DeleteManageAddPackage","Traveller", new { packageID=m.PackageID})" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a>
+                                                  
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    }
+                                    
+                                 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
